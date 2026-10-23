@@ -1,0 +1,98 @@
+{
+  "expo": {
+    "name": "Studio",
+    "slug": "studio-ios",
+    "version": "1.1",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "studio",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#050508",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.studio.app",
+      "buildNumber": "10",
+      "backgroundColor": "#050508",
+      "associatedDomains": [
+        "applinks:example.com"
+      ],
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Attach photos and short videos as Create references, and save finished clips.",
+        "NSPhotoLibraryAddUsageDescription": "Save finished clips to Photos.",
+        "UIBackgroundModes": [
+          "remote-notification"
+        ],
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0A0A",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "package": "com.example.studio.app",
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+        "android.permission.READ_MEDIA_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-image",
+      "expo-video",
+      "expo-sharing",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Attach face photos and reference images or short videos for Create."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Save clips to your photo library.",
+          "savePhotosPermission": "Save finished clips to Photos.",
+          "isAccessMediaLocationEnabled": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#007AFF"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#0A0A0A"
+        }
+      ],
+      "expo-iap",
+      "expo-audio",
+      "expo-asset",
+      "@sentry/react-native",
+      "./plugins/withSentryDisableAutoUpload.js"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiBaseUrl": "https://api.example.com/api",
+      "router": {}
+    }
+  }
+}

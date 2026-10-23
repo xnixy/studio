@@ -1,0 +1,44 @@
+# Studio
+
+> Make talking clips, short video, stills, and lip-sync for TikTok, Reels, and Shorts. Pick Seedance, Grok, Veo, or Nano Banana.
+
+Studio is a chat-first tool for finished short-form files. Pick a face, write the line, choose a model, and download the clip. Free and paid plans come with monthly credits, and packs cover a busy month. Create a free account to start. It does not post anything for you.
+
+## Pages
+
+- [Home](https://example.com/): Composer preview and example gallery
+- [About](https://example.com/about): Who it is for, how it works, FAQ
+- [Pricing](https://example.com/pricing): Free, Starter, Creator, Studio and credits
+- [Contact](https://example.com/contact): Account help or ask about plans
+- [Docs](https://example.com/docs): Product documentation
+- [Sign in](https://example.com/login): Sign in to an existing account
+- [Create account](https://example.com/register): Create a Studio account
+- [Privacy](https://example.com/privacy): Privacy policy
+- [Terms](https://example.com/terms): Terms of service
+
+## Documentation
+
+- [Docs home](https://example.com/docs): Guides for Create, models and credits, avatars, plans, and troubleshooting
+- [Getting started](https://example.com/docs/getting-started)
+- [Account](https://example.com/docs/account-and-invite)
+- [Make your first clip](https://example.com/docs/create-your-first-clip)
+- [Models & credits](https://example.com/docs/models-and-tokens)
+- [Avatars & faces](https://example.com/docs/avatars-and-faces)
+- [Plans & credits](https://example.com/docs/billing-and-plans)
+- [FAQ](https://example.com/docs/faq)
+- [Troubleshooting](https://example.com/docs/troubleshooting)
+
+## Documentation
+
+- [Docs home](https://example.com/docs): Guides for Create, models and credits, avatars, plans, and troubleshooting
+- [Getting started](https://example.com/docs/getting-started)
+- [Account](https://example.com/docs/account-and-invite)
+- [Make your first clip](https://example.com/docs/create-your-first-clip)
+- [Models & credits](https://example.com/docs/models-and-tokens)
+- [Faces](https://example.com/docs/avatars-and-faces)
+- [Voices & clone](https://example.com/docs/voices-and-clone)
+- [Plans & credits](https://example.com/docs/billing-and-plans)
+- [FAQ](https://example.com/docs/faq)
+- [Troubleshooting](https://example.com/docs/troubleshooting)
+
+## Optional

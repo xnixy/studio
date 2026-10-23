@@ -1,0 +1,13 @@
+# example.com, allow indexing of the marketing site.
+User-agent: *
+Allow: /
+
+# App shell / authenticated areas are low value for general search
+Disallow: /studio/
+Disallow: /admin/
+Disallow: /profile
+Disallow: /workspaces
+Disallow: /growth
+Disallow: /share/
+
+Sitemap: https://example.com/sitemap.xml

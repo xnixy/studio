@@ -1,0 +1,54 @@
+{
+  "name": "studio",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspaces/studio",
+  "shutdownAction": "stopCompose",
+  "overrideCommand": false,
+
+  "appPort": ["3001:3001", "5173:5173"],
+  "forwardPorts": [3001, 5173],
+  "portsAttributes": {
+    "3001": { "label": "API (FastAPI)", "onAutoForward": "notify" },
+    "5173": { "label": "Frontend (Vite)", "onAutoForward": "notify" }
+  },
+
+  "remoteEnv": {
+    "APP_ENV": "development",
+    "DATABASE_URL": "postgresql+asyncpg://postgres:postgres@postgres:5432/studio",
+    "REDIS_URL": "redis://redis:6379/0",
+    "JWT_SIGNING_KEY": "development-signing-key-change-me-32chars",
+    "JWT_ISSUER": "studio-api",
+    "JWT_AUDIENCE": "studio-web",
+    "FRONTEND_ORIGINS": "http://localhost:5173,http://localhost:8080,https://example.com",
+    "SEED_ADMIN_EMAIL": "admin@studio.local",
+    "SEED_ADMIN_PASSWORD": "Admin123!",
+    "TRUST_PROXY_HEADERS": "false",
+    "PUBLIC_API_BASE_URL": "http://localhost:3001",
+    "APP_BASE_URL": "http://localhost:5173",
+    "VITE_API_BASE_URL": "/api",
+    "VITE_DEV_API_PROXY": "http://127.0.0.1:3001"
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+
+  "customizations": {
+    "zed": {
+      "extensions": ["python", "ruff", "dockerfile", "toml", "html", "yaml", "sql"]
+    },
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/workspaces/studio/backend/.venv/bin/python",
+        "python.analysis.extraPaths": ["/workspaces/studio/backend"]
+      }
+    }
+  }
+}

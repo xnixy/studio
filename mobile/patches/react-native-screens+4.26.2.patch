@@ -1,0 +1,105 @@
+diff --git a/node_modules/react-native-screens/ios/tabs/host/RNSTabBarController.mm b/node_modules/react-native-screens/ios/tabs/host/RNSTabBarController.mm
+index 481a9e6..bbf84a3 100644
+--- a/node_modules/react-native-screens/ios/tabs/host/RNSTabBarController.mm
++++ b/node_modules/react-native-screens/ios/tabs/host/RNSTabBarController.mm
+@@ -828,9 +828,28 @@ static void rns_pushViewController(__unsafe_unretained id self,
+ - (void)disableNavigationBarInMoreNavigationController
+ {
+ #if RNS_MORE_NAVIGATION_CONTROLLER_AVAILABLE
+-  if (!self.moreNavigationController.navigationBar.isHidden) {
+-    [self.moreNavigationController setNavigationBarHidden:YES animated:NO];
++  // Studio patch: keep the system More chrome visible.
++  // Hiding the nav bar left a pure-black UIMoreListController with no title/Edit styling.
++  UINavigationController *moreNav = self.moreNavigationController;
++  if (moreNav == nil) {
++    return;
++  }
++  if (moreNav.navigationBar.isHidden) {
++    [moreNav setNavigationBarHidden:NO animated:NO];
++  }
++  // System backgrounds so the More table is not a black void in dark mode.
++  if (@available(iOS 13.0, *)) {
++    moreNav.view.backgroundColor = [UIColor systemBackgroundColor];
++    moreNav.overrideUserInterfaceStyle = UIUserInterfaceStyleUnspecified;
++    UINavigationBarAppearance *appearance = [UINavigationBarAppearance new];
++    [appearance configureWithDefaultBackground];
++    moreNav.navigationBar.standardAppearance = appearance;
++    moreNav.navigationBar.scrollEdgeAppearance = appearance;
++    moreNav.navigationBar.compactAppearance = appearance;
++  } else {
++    moreNav.view.backgroundColor = [UIColor whiteColor];
+   }
++  moreNav.navigationBar.prefersLargeTitles = NO;
+ #endif // RNS_MORE_NAVIGATION_CONTROLLER_AVAILABLE
+ }
+ 
+diff --git a/node_modules/react-native-screens/ios/tabs/screen/RNSTabsScreenViewController.mm b/node_modules/react-native-screens/ios/tabs/screen/RNSTabsScreenViewController.mm
+index 24bb71e..f33a4c6 100644
+--- a/node_modules/react-native-screens/ios/tabs/screen/RNSTabsScreenViewController.mm
++++ b/node_modules/react-native-screens/ios/tabs/screen/RNSTabsScreenViewController.mm
+@@ -74,10 +74,7 @@
+             @"[RNScreens] TabScreenViewController added to parent of unexpected type: %@",
+             parent.class);
+ 
+-  if ([parent isKindOfClass:UINavigationController.class]) {
+-    // Hide the navigation bar for the more controller
+-    [(UINavigationController *)parent setNavigationBarHidden:YES animated:YES];
+-  }
++  // Studio patch: do not hide More nav bar (keeps system More list chrome).
+ 
+   RNSTabBarController *tabBarCtrl = [self findTabBarController];
+ 
+@@ -88,6 +85,53 @@
+   [tabBarCtrl updateTabBarAppearanceIfNeeded];
+ }
+ 
++// Studio patch: iPad sidebar mode.
++// UITabBarController exposes contentLayoutGuide for the unobscured content column, but RN
++// still sizes the tab screen to the full host width so content draws under the sidebar.
++// Force the screen view frame to the content guide and mirror that as safe-area insets.
++- (void)viewDidLayoutSubviews
++{
++  [super viewDidLayoutSubviews];
++#if !TARGET_OS_TV
++  if (@available(iOS 18.0, *)) {
++    UITabBarController *tbc = self.tabBarController;
++    if (tbc == nil) {
++      return;
++    }
++
++    UIEdgeInsets nextInsets = UIEdgeInsetsZero;
++    if (tbc.mode == UITabBarControllerModeTabSidebar) {
++      UILayoutGuide *guide = tbc.contentLayoutGuide;
++      if (guide != nil && guide.owningView != nil && self.view.superview != nil) {
++        CGRect contentInTab = [guide.owningView convertRect:guide.layoutFrame toView:tbc.view];
++        CGRect contentInSuperview = [tbc.view convertRect:contentInTab toView:self.view.superview];
++
++        // 1) Pin native view to the content column (horizontal + vertical).
++        if (!CGRectIsEmpty(contentInSuperview) && !CGRectEqualToRect(self.view.frame, contentInSuperview)) {
++          self.view.frame = contentInSuperview;
++        }
++
++        // 2) Also publish as additional safe area so ScrollView automatic insets / RN
++        // safe-area consumers still pad if frame is fought by Fabric layout.
++        CGRect hostBounds = tbc.view.bounds;
++        CGFloat leading = MAX(0, CGRectGetMinX(contentInTab) - CGRectGetMinX(hostBounds));
++        CGFloat trailing = MAX(0, CGRectGetMaxX(hostBounds) - CGRectGetMaxX(contentInTab));
++        CGFloat top = MAX(0, CGRectGetMinY(contentInTab) - CGRectGetMinY(hostBounds));
++        CGFloat bottom = MAX(0, CGRectGetMaxY(hostBounds) - CGRectGetMaxY(contentInTab));
++        nextInsets = UIEdgeInsetsMake(top, leading, bottom, trailing);
++      }
++    }
++
++    UIEdgeInsets current = self.additionalSafeAreaInsets;
++    if (fabs(current.left - nextInsets.left) > 0.5 || fabs(current.right - nextInsets.right) > 0.5 ||
++        fabs(current.top - nextInsets.top) > 0.5 || fabs(current.bottom - nextInsets.bottom) > 0.5) {
++      self.additionalSafeAreaInsets = nextInsets;
++      [self.view setNeedsLayout];
++    }
++  }
++#endif // !TARGET_OS_TV
++}
++
+ - (void)setTabsSpecialEffectsDelegate:(id<RNSTabsSpecialEffectsSupporting>)delegate
+ {
+   RCTAssert(

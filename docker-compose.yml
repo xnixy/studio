@@ -1,0 +1,139 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: studio
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    # Bind to localhost only — do not expose Postgres on all interfaces in shared environments.
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d studio"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: development
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/studio
+      REDIS_URL: redis://redis:6379/0
+      JWT_SIGNING_KEY: development-signing-key-change-me-32chars
+      JWT_ISSUER: studio-api
+      JWT_AUDIENCE: studio-web
+      FRONTEND_ORIGINS: http://localhost:5173,http://localhost:8080,https://example.com
+      SEED_ADMIN_EMAIL: admin@studio.local
+      SEED_ADMIN_PASSWORD: Admin123!
+      TRUST_PROXY_HEADERS: "false"
+    ports:
+      - "3001:3001"
+    volumes:
+      - backend-media:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  render-worker:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: development
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/studio
+      REDIS_URL: redis://redis:6379/0
+      JWT_SIGNING_KEY: development-signing-key-change-me-32chars
+      JWT_ISSUER: studio-api
+      JWT_AUDIENCE: studio-web
+      FRONTEND_ORIGINS: http://localhost:5173,http://localhost:8080,https://example.com
+      SEED_ADMIN_EMAIL: admin@studio.local
+      SEED_ADMIN_PASSWORD: Admin123!
+    command: ["sh", "-c", "alembic upgrade head && python -m app.render_worker --poll-seconds 5"]
+    volumes:
+      - backend-media:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+
+  job-worker:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: development
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/studio
+      REDIS_URL: redis://redis:6379/0
+      JWT_SIGNING_KEY: development-signing-key-change-me-32chars
+      JWT_ISSUER: studio-api
+      JWT_AUDIENCE: studio-web
+      FRONTEND_ORIGINS: http://localhost:5173,http://localhost:8080,https://example.com
+      SEED_ADMIN_EMAIL: admin@studio.local
+      SEED_ADMIN_PASSWORD: Admin123!
+    command: ["sh", "-c", "alembic upgrade head && python -m app.job_worker --poll-seconds 5"]
+    volumes:
+      - backend-media:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      backend:
+        condition: service_started
+
+  # Production-style static frontend (nginx). For Vite HMR locally, use `frontend` package with npm run dev.
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: /api
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  # Optional local Vite dev container: docker compose --profile dev up frontend-dev
+  # Behind a tunnel or custom domain, keep VITE_API_BASE_URL=/api so the browser stays same-origin.
+  # Do NOT set http://localhost:… here — public HTTPS pages calling localhost trigger Chrome's
+  # "Access other apps and services on this device" (Local Network Access) prompt.
+  frontend-dev:
+    profiles: ["dev"]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    environment:
+      VITE_API_BASE_URL: /api
+      # Browser → /api → Vite proxy → backend container
+      VITE_DEV_API_PROXY: http://backend:3001
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  postgres-data:
+  backend-media:

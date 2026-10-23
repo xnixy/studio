@@ -1,0 +1,37 @@
+[
+  {
+    "id": "maya",
+    "label": "Maya",
+    "prompt": "a real 30-year-old Caucasian woman with natural blonde hair, light freckles, minimal makeup, soft smile, everyday look, photoreal head-and-shoulders portrait, natural window light, simple soft background",
+    "localUrl": "/examples/avatars/maya.jpg",
+    "url": "https://storage.example.com/examples/avatars/maya.jpg"
+  },
+  {
+    "id": "jordan",
+    "label": "Jordan",
+    "prompt": "a real 28-year-old Black man with short natural hair, warm friendly expression, natural skin texture, casual crewneck, photoreal head-and-shoulders portrait, soft daylight, simple soft background",
+    "localUrl": "/examples/avatars/jordan.jpg",
+    "url": "https://storage.example.com/examples/avatars/jordan.jpg"
+  },
+  {
+    "id": "aiko",
+    "label": "Aiko",
+    "prompt": "a real 26-year-old East Asian woman with dark hair loosely tied, natural look, soft smile, no heavy makeup, photoreal head-and-shoulders portrait, gentle daylight, simple soft background",
+    "localUrl": "/examples/avatars/aiko.jpg",
+    "url": "https://storage.example.com/examples/avatars/aiko.jpg"
+  },
+  {
+    "id": "diego",
+    "label": "Diego",
+    "prompt": "a real 30-year-old Latino man with short dark hair, light stubble, easy smile, natural skin, casual shirt, photoreal head-and-shoulders portrait, soft outdoor light, simple soft background",
+    "localUrl": "/examples/avatars/diego.jpg",
+    "url": "https://storage.example.com/examples/avatars/diego.jpg"
+  },
+  {
+    "id": "priya",
+    "label": "Priya",
+    "prompt": "a real 27-year-old South Asian woman with dark hair, natural skin tone, light natural makeup, calm smile, photoreal head-and-shoulders portrait, soft indoor light, simple soft background",
+    "localUrl": "/examples/avatars/priya.jpg",
+    "url": "https://storage.example.com/examples/avatars/priya.jpg"
+  }
+]

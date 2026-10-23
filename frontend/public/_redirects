@@ -1,0 +1,63 @@
+# SPA client-route fallback (Cloudflare Pages).
+#
+# IMPORTANT: Cloudflare Pages _redirects does NOT support 404 rewrites
+# (only 200 proxy + 3xx). A rule like `/static/* /asset-missing.txt 404` is
+# ignored. A catch-all `/* /index.html 200` then serves HTML for missing JS
+# chunks, and `_headers` can immutable-cache that HTML as if it were JS.
+# That poisons /static/* after deploy races and loops route loads forever.
+#
+# Fix: list SPA routes explicitly. Never rewrite /static/* or /assets/*.
+# Existing files still win over these rules. Missing hashed chunks 404.
+
+# Single-segment app routes (with and without trailing slash).
+# Some edge configs 308 bare paths to /; explicit pairs keep mobile + SEO deep links alive.
+/about              /index.html   200
+/about/             /index.html   200
+/pricing            /index.html   200
+/pricing/           /index.html   200
+/contact            /index.html   200
+/contact/           /index.html   200
+/login              /index.html   200
+/login/             /index.html   200
+/register           /index.html   200
+/register/          /index.html   200
+/forgot-password    /index.html   200
+/forgot-password/   /index.html   200
+/reset-password     /index.html   200
+/reset-password/    /index.html   200
+/verify-email       /index.html   200
+/verify-email/      /index.html   200
+/profile            /index.html   200
+/profile/           /index.html   200
+/workspaces         /index.html   200
+/workspaces/        /index.html   200
+/growth             /index.html   200
+/growth/            /index.html   200
+/admin              /index.html   200
+/admin/             /index.html   200
+/privacy            /index.html   200
+/privacy/           /index.html   200
+/terms              /index.html   200
+/terms/             /index.html   200
+/roadmap            /index.html   200
+/roadmap/           /index.html   200
+/docs               /index.html   200
+/docs/              /index.html   200
+/play               /index.html   200
+/play/              /index.html   200
+/avatars            /index.html   200
+/avatars/           /index.html   200
+/clips              /index.html   200
+/clips/             /index.html   200
+/billing            /index.html   200
+/billing/           /index.html   200
+/voices             /index.html   200
+/voices/            /index.html   200
+/studio             /index.html   200
+/studio/            /index.html   200
+
+# Nested app routes
+/docs/*             /index.html   200
+/studio/*           /index.html   200
+/share/*            /index.html   200
+/clips/*            /index.html   200

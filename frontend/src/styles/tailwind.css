@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/*
+ * Single styling system: Tailwind.
+ * Tokens are CSS vars set by theme/brand.ts at runtime.
+ */
+
+@theme {
+  --font-sans: var(--studio-font, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif);
+  --color-bg: var(--studio-bg, #000);
+  --color-fg: var(--studio-fg, #f5f5f7);
+  --color-muted: var(--studio-fg-muted, #aeaeb2);
+  --color-subtle: var(--studio-fg-subtle, #8e8e93);
+  --color-brand: var(--studio-brand, #0a84ff);
+  --color-brand-fg: var(--studio-brand-fg, #ffffff);
+  --color-border: var(--studio-border, #2c2c2e);
+  --color-panel: var(--studio-panel, #1c1c1e);
+  --color-input: var(--input-bg, #2c2c2e);
+  --color-danger: #ff453a;
+  --color-success: #32d74b;
+  --color-warning: #ffd60a;
+  --radius-studio: 14px;
+  --radius-studio-sm: 10px;
+  --radius-studio-lg: 22px;
+}
+
+@layer base {
+  @font-face {
+    font-family: "Glass Antiqua";
+    src: url("/fonts/GlassAntiqua-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --color-danger: #ff453a;
+    --color-danger-fg: #ff6961;
+    --color-danger-bg: rgb(255 69 58 / 0.16);
+    --color-danger-border: rgb(255 69 58 / 0.4);
+    --color-success: #32d74b;
+    --color-success-fg: #30d158;
+    --color-success-bg: rgb(50 215 75 / 0.14);
+    --color-success-border: rgb(50 215 75 / 0.38);
+    --color-warning: #ffd60a;
+    --color-warning-fg: #ffd60a;
+    --color-warning-bg: rgb(255 214 10 / 0.12);
+    --color-warning-border: rgb(255 214 10 / 0.35);
+    --studio-fill: rgba(120, 120, 128, 0.24);
+    --studio-fill-soft: rgba(120, 120, 128, 0.16);
+    --studio-fill-quiet: rgba(120, 120, 128, 0.12);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-sans);
+    /*
+     * Scroll on html only. Reserve gutter so chrome width is stable.
+     * Do NOT put overflow-x:hidden on body — that breaks position:sticky.
+     */
+    overflow-y: scroll;
+    overflow-x: clip;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(120 120 128 / 0.42) transparent;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100%;
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--studio-fg, #f5f5f7);
+    background-color: var(--studio-bg, #050508);
+    /* Ambient color fields so frosted glass has something to pick up (match iOS app). */
+    background-image:
+      radial-gradient(ellipse 70% 55% at 85% -5%, var(--studio-orb-a, rgb(10 132 255 / 0.22)), transparent 60%),
+      radial-gradient(ellipse 55% 45% at -10% 45%, var(--studio-orb-b, rgb(175 82 222 / 0.14)), transparent 55%),
+      radial-gradient(ellipse 40% 35% at 90% 90%, var(--studio-orb-c, rgb(48 209 88 / 0.1)), transparent 50%);
+    background-attachment: fixed;
+  }
+
+  #root {
+    min-height: 100%;
+    position: relative;
+  }
+
+  /**
+   * Explicit glass surface (Safari needs -webkit-).
+   * Use alongside translucent bg tokens so admin boards and rails always blur.
+   */
+  .studio-surface-glass {
+    -webkit-backdrop-filter: var(--studio-backdrop-filter, blur(28px) saturate(1.35));
+    backdrop-filter: var(--studio-backdrop-filter, blur(28px) saturate(1.35));
+  }
+
+  /* Prefer system glass when available; keep solid fallback via tokens. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    :root {
+      --studio-glass: var(--studio-panel-solid, #1c1c1e);
+      --studio-glass-strong: var(--studio-panel-solid, #1c1c1e);
+      --studio-panel: var(--studio-panel-solid, #1c1c1e);
+      --studio-material-blur: 0px;
+      --studio-backdrop-filter: none;
+    }
+    .studio-surface-glass {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: var(--studio-panel-solid, #1c1c1e) !important;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /*
+   * Native <select> closed + open state.
+   * Windows often repaints the closed control with system colors after a choice
+   * (text vanishes on dark glass). Force readable fg/bg for the control + options.
+   */
+  select {
+    color: var(--studio-fg, #f5f5f7);
+    background-color: var(--input-bg, #2c2c2e);
+  }
+
+  html[data-theme="light"] select {
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] select {
+    color-scheme: dark;
+  }
+
+  select option,
+  select optgroup {
+    background-color: var(--studio-panel-solid, #000000);
+    color: var(--studio-fg, #f5f2ff);
+  }
+
+  html[data-theme="light"] select option,
+  html[data-theme="light"] select optgroup {
+    background-color: var(--studio-panel-solid, #ffffff);
+    color: var(--studio-fg, #120e1c);
+  }
+
+
+  ::selection {
+    background: var(--selection-bg, rgb(184 164 255 / 0.28));
+  }
+
+  /* Cinematic video scrubber (VideoPlayer) */
+  .studio-video-scrub {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    margin: 0;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      var(--studio-brand, #b8a4ff) var(--_p, 0%),
+      rgb(var(--studio-brand-rgb, 184 164 255) / 0.18) var(--_p, 0%)
+    );
+    outline: none;
+    cursor: pointer;
+  }
+
+  .studio-video-scrub::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--studio-fg, #f5f2ff);
+    border: 2px solid var(--studio-brand, #b8a4ff);
+    box-shadow: 0 0 0 3px rgb(var(--studio-brand-rgb, 184 164 255) / 0.2);
+  }
+
+  .studio-video-scrub::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--studio-fg, #f5f2ff);
+    border: 2px solid var(--studio-brand, #b8a4ff);
+    box-shadow: 0 0 0 3px rgb(var(--studio-brand-rgb, 184 164 255) / 0.2);
+  }
+
+  /* Landing motion (cheap: transform/opacity only) */
+  @keyframes studio-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes studio-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes studio-pulse-soft {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(var(--studio-brand-rgb, 184 164 255) / 0.35);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgb(var(--studio-brand-rgb, 184 164 255) / 0);
+    }
+  }
+
+  @keyframes studio-shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .studio-marquee-track {
+    animation: studio-marquee 42s linear infinite;
+  }
+
+  .studio-fade-up {
+    animation: studio-fade-up 0.55s ease both;
+  }
+
+  .studio-pulse-cta {
+    animation: studio-pulse-soft 2.4s ease-in-out infinite;
+  }
+
+  .studio-hero-shimmer {
+    background-size: 200% 200%;
+    animation: studio-shimmer 8s ease infinite alternate;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .studio-marquee-track,
+    .studio-fade-up,
+    .studio-pulse-cta,
+    .studio-hero-shimmer {
+      animation: none !important;
+    }
+  }
+}
+

@@ -1,0 +1,55 @@
+# Cloudflare Pages / Netlify-style headers
+# Keep index fresh so clients never hold a stale entry that points at deleted chunks.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; frame-ancestors 'none'; object-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; media-src 'self' blob: https:; connect-src 'self' https://api.example.com wss://api.example.com https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Hashed Vite build files (assetsDir: static) are content-addressed.
+# Only real files should be served here (see _redirects: no SPA fallback on /static/*).
+# If HTML is ever served under /static by mistake, nosniff keeps the browser from
+# executing it as JS — still avoid caching non-JS under this path.
+/static/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Legacy path (older deploys); keep headers but prefer /static going forward.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+/asset-missing.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=60, must-revalidate
+
+# Crawl / AI discovery files (must stay plain text, not SPA HTML)
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+# iOS Universal Links (invite + password reset). Must be application/json, no redirect.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public, max-age=300
+
+/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: public, max-age=300

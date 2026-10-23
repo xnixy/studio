@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="https://example.com/" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta
+      name="description"
+      content="Make Talking, Photo, Scene, and stills for TikTok, Reels, and Shorts. One box, then we confirm the kind. Credits show before you spend."
+    />
+    <meta property="og:site_name" content="Studio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:title" content="Studio · Talking, Photo, Scene, and stills" />
+    <meta
+      property="og:description"
+      content="Make Talking, Photo, Scene, and stills for TikTok, Reels, and Shorts. One box, then we confirm the kind. Credits show before you spend."
+    />
+    <meta property="og:image" content="https://example.com/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Studio" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Studio · Talking, Photo, Scene, and stills" />
+    <meta
+      name="twitter:description"
+      content="Make Talking, Photo, Scene, and stills for TikTok, Reels, and Shorts. One box, then we confirm the kind. Credits show before you spend."
+    />
+    <meta name="twitter:image" content="https://example.com/og-default.png" />
+    <title>Studio · Talking, Photo, Scene, and stills</title>
+    <link
+      rel="preload"
+      href="/fonts/GlassAntiqua-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://example.com/#organization",
+            "name": "Studio",
+            "url": "https://example.com/",
+            "logo": "https://example.com/android-chrome-512x512.png",
+            "description": "AI tool for Talking, Photo, Scene, and stills. One box, then we confirm the kind."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://example.com/#website",
+            "url": "https://example.com/",
+            "name": "Studio",
+            "description": "Make Talking, Photo, Scene, and stills in chat",
+            "publisher": { "@id": "https://example.com/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Studio",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Web",
+            "url": "https://example.com/",
+            "description": "Make Talking, Photo, Scene, and stills for TikTok, Reels, and Shorts. One box, then we confirm the kind. Download the file.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "Free plan to start. Paid plans available."
+            }
+          }
+        ]
+      }
+    </script>
+    <script>
+      (function () {
+        /*
+         * First-paint = solid black/grey canvas + system blue accent.
+         * Keep in sync with ui/theme/brand.ts. No wallpaper / material layers.
+         */
+        var palette = {
+          dark: { bg: "#000000", fg: "#f5f5f7", rgb: "10 132 255" },
+          light: { bg: "#f2f2f7", fg: "#111111", rgb: "0 122 255" },
+        };
+
+        var resolved = "dark";
+        try {
+          var stored = localStorage.getItem("studio.theme") || "system";
+          resolved =
+            stored === "system"
+              ? window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark"
+              : stored === "light"
+                ? "light"
+                : "dark";
+          try {
+            localStorage.removeItem("studio.brand");
+            localStorage.removeItem("studio.material");
+            localStorage.removeItem("studio.perf");
+          } catch (_) {}
+        } catch (e) {
+          try {
+            resolved = window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          } catch (_) {}
+        }
+
+        var mode = palette[resolved];
+        var root = document.documentElement;
+        root.dataset.theme = resolved;
+        root.dataset.brand = "black";
+        root.removeAttribute("data-material");
+        root.removeAttribute("data-perf");
+        root.style.colorScheme = resolved;
+        root.style.setProperty("--studio-bg", mode.bg);
+        root.style.setProperty("--studio-fg", mode.fg);
+        root.style.setProperty("--studio-brand-rgb", mode.rgb);
+        root.style.setProperty("--studio-wallpaper-opacity", "0");
+        root.style.setProperty("--studio-material-blur", "0px");
+        root.style.backgroundColor = mode.bg;
+        root.style.color = mode.fg;
+
+        window.__studioBoot = { bg: mode.bg, fg: mode.fg };
+
+        try {
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", mode.bg);
+        } catch (_) {}
+      })();
+    </script>
+    <style>
+      /*
+       * Critical boot paint: solid canvas only.
+       * Theme JS takes over after React mounts.
+       */
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background-color: var(--studio-bg, #000000);
+        color: var(--studio-fg, #f5f5f7);
+      }
+      #root {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        background-color: transparent;
+        color: inherit;
+      }
+      #studio-boot {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        color: inherit;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background-color: var(--studio-bg, #000000);
+      }
+      #studio-boot[data-done] {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+      }
+      #studio-boot .studio-boot-inner {
+        display: grid;
+        justify-items: center;
+        gap: 1rem;
+      }
+      #studio-boot .studio-boot-mark {
+        margin: 0;
+        font-size: 0.9375rem;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+        opacity: 0.9;
+      }
+      #studio-boot .studio-boot-spinner {
+        box-sizing: border-box;
+        width: 1.75rem;
+        height: 1.75rem;
+        border: 2px solid currentColor;
+        border-right-color: transparent;
+        border-radius: 50%;
+        opacity: 0.55;
+        animation: studio-boot-spin 0.75s linear infinite;
+      }
+      #studio-boot .studio-boot-label {
+        margin: 0;
+        font-size: 0.8125rem;
+        letter-spacing: 0.02em;
+        opacity: 0.55;
+      }
+      @keyframes studio-boot-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #studio-boot .studio-boot-spinner {
+          animation: none;
+          border-right-color: currentColor;
+          opacity: 0.35;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var boot = window.__studioBoot || { bg: "#000000", fg: "#f5f5f7" };
+        document.body.style.backgroundColor = boot.bg;
+        document.body.style.color = boot.fg;
+      })();
+    </script>
+    <!--
+      Boot lives OUTSIDE #root so React mount doesn't tear it down and flash a second spinner.
+      App dismisses it once the first real route paints (see bootShell.ts / BootDismiss).
+    -->
+    <div id="studio-boot" role="status" aria-live="polite" aria-busy="true" aria-label="Loading">
+      <div class="studio-boot-inner">
+        <p class="studio-boot-mark">Studio</p>
+        <div class="studio-boot-spinner" aria-hidden="true"></div>
+        <p class="studio-boot-label">Loading</p>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

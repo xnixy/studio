@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7f2ea"/>
+      <stop offset="40%" stop-color="#efe8dc"/>
+      <stop offset="100%" stop-color="#e4ecf4"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="22%" cy="18%" r="48%">
+      <stop offset="0%" stop-color="#e8c48a" stop-opacity="0.65"/>
+      <stop offset="50%" stop-color="#d4a86a" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#d4a86a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="88%" cy="22%" r="40%">
+      <stop offset="0%" stop-color="#9eb0ff" stop-opacity="0.5"/>
+      <stop offset="55%" stop-color="#7a8fe0" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#7a8fe0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb3" cx="60%" cy="90%" r="44%">
+      <stop offset="0%" stop-color="#f0a8bc" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#e08aa0" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#e08aa0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb4" cx="10%" cy="70%" r="32%">
+      <stop offset="0%" stop-color="#8ad4b0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#8ad4b0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="soft" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" result="n"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.18  0 0 0 0 0.15  0 0 0 0.05 0" in="n" result="g"/>
+      <feBlend in="SourceGraphic" in2="g" mode="multiply"/>
+    </filter>
+    <linearGradient id="beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#orb1)"/>
+  <rect width="1920" height="1080" fill="url(#orb2)"/>
+  <rect width="1920" height="1080" fill="url(#orb3)"/>
+  <rect width="1920" height="1080" fill="url(#orb4)"/>
+  <rect width="1920" height="1080" fill="url(#soft)"/>
+  <g opacity="0.22" fill="none" stroke="#8a7048" stroke-width="1.1">
+    <path d="M-40 760 C420 600 820 900 1980 520"/>
+    <path d="M-40 840 C480 680 900 960 1980 600"/>
+    <path d="M-40 920 C520 760 940 1020 1980 680"/>
+  </g>
+  <g opacity="0.2">
+    <ellipse cx="340" cy="220" rx="240" ry="150" fill="#f5d6a0"/>
+    <ellipse cx="1500" cy="300" rx="280" ry="170" fill="#b0c0ff"/>
+    <ellipse cx="1000" cy="780" rx="340" ry="190" fill="#f0b8c8"/>
+  </g>
+  <rect x="0" y="220" width="1920" height="3" fill="url(#beam)" transform="rotate(-7 960 540)"/>
+  <rect x="0" y="540" width="1920" height="2" fill="url(#beam)" transform="rotate(5 960 540)"/>
+  <rect width="1920" height="1080" filter="url(#grain)" opacity="0.55"/>
+</svg>

@@ -1,0 +1,672 @@
+[
+  {
+    "id": "alexandra",
+    "name": "Alexandra",
+    "description": "Casual American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "kdmDKE6EkgrWrrykO9Qt",
+    "public_owner_id": "f995f689648bc413c1b7fb9ec8524f634e4d32f5030ee172ef6d847ba9dc5ee9"
+  },
+  {
+    "id": "amber",
+    "name": "Amber",
+    "description": "Calm Croatian",
+    "gender": "female",
+    "accent": "croatian",
+    "language": "en",
+    "elevenlabs_voice_id": "2t85BBUECtLLKQzxLD95",
+    "public_owner_id": "74b44191e503e1cb6fe5700ccbf93b2791323f18a45a397f7b16f376b57d189f"
+  },
+  {
+    "id": "angela",
+    "name": "Angela",
+    "description": "American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "FUfBrNit0NNZAwb58KWH",
+    "public_owner_id": "1c41c8b5f81bfd0dd6b1f0f0a2470d068d2a6c23b49c6cd487534b58cb1b9309"
+  },
+  {
+    "id": "anika",
+    "name": "Anika",
+    "description": "Professional Indian",
+    "gender": "female",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "90ipbRoKi4CpHXvKVtl0",
+    "public_owner_id": "f87f057c2250691953ac2e6227859706764bd08c88a055a18c74261957885a51"
+  },
+  {
+    "id": "anya",
+    "name": "Anya",
+    "description": "Casual American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "d3MFdIuCfbAIwiu7jC4a",
+    "public_owner_id": "1511ed826fab60470163163bf836e7104cc47cbf79490939b56cef4c79caef8f"
+  },
+  {
+    "id": "arabella",
+    "name": "Arabella",
+    "description": "Raspy Australian",
+    "gender": "female",
+    "accent": "australian",
+    "language": "en",
+    "elevenlabs_voice_id": "aEO01A4wXwd1O8GPgGlF",
+    "public_owner_id": "c36337499a40b78dc8be1bb08cc56e6f3fac85dcd0e83711a59a8ed944290086"
+  },
+  {
+    "id": "belle",
+    "name": "Belle",
+    "description": "Professional American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "cNYrMw9glwJZXR8RwbuR",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  },
+  {
+    "id": "callie",
+    "name": "Callie",
+    "description": "Cute American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "7YaUDeaStRuoYg3FKsmU",
+    "public_owner_id": "1511ed826fab60470163163bf836e7104cc47cbf79490939b56cef4c79caef8f"
+  },
+  {
+    "id": "christina",
+    "name": "Christina",
+    "description": "Casual American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "X03mvPuTfprif8QBAVeJ",
+    "public_owner_id": "472b6ce1c71b3c5bf78fcadff4210e10addfd9820332cb1fbfa0d1cdeb55db68"
+  },
+  {
+    "id": "clara",
+    "name": "Clara",
+    "description": "Intense American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "eaNNqnkhfRYVtX7U7VLj",
+    "public_owner_id": "7e25adb1ed34e5e28d9ac739ef24de999015f37d7f478193bb0faf214a595f3f"
+  },
+  {
+    "id": "elise",
+    "name": "Elise",
+    "description": "Pleasant American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "EST9Ui6982FZPSi7gCHi",
+    "public_owner_id": "300b35287e8acc21dd12bd610b831e19b47dc75e8b8c15c2bca80cdcb776ef2d"
+  },
+  {
+    "id": "ellen",
+    "name": "Ellen",
+    "description": "Casual German",
+    "gender": "female",
+    "accent": "german",
+    "language": "en",
+    "elevenlabs_voice_id": "BIvP0GN1cAtSRTxNHnWS",
+    "public_owner_id": "6ab94ed0320ff2f399704545bef8a51b67584378bce75fdaa0926e21527dc91c"
+  },
+  {
+    "id": "emma",
+    "name": "Emma",
+    "description": "Australian",
+    "gender": "female",
+    "accent": "australian",
+    "language": "en",
+    "elevenlabs_voice_id": "56bWURjYFHyYyVf490Dp",
+    "public_owner_id": "94f03704b477b84c140c5569ba231544d4de6b7d7d4a3df569700a4c0b4a340b"
+  },
+  {
+    "id": "eryn",
+    "name": "Eryn",
+    "description": "Pleasant American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "DXFkLCBUTmvXpp2QwZjA",
+    "public_owner_id": "7c9a48efbe7a92ae01bc45eb32e311ae13830a4c73c8bb77e1f383da0af0782a"
+  },
+  {
+    "id": "hannah",
+    "name": "Hannah",
+    "description": "Confident Australian",
+    "gender": "female",
+    "accent": "australian",
+    "language": "en",
+    "elevenlabs_voice_id": "M7ya1YbaeFaPXljg9BpK",
+    "public_owner_id": "64e8539d0ec9b91f065bce797a5fe3d16784c2c9b8033ed6461fe656f01065eb"
+  },
+  {
+    "id": "hope",
+    "name": "Hope",
+    "description": "Crisp American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "OYTbf65OHHFELVut7v2H",
+    "public_owner_id": "7d272ea0221fbc9ce382a3eaf4d7f907179558360d93b351ec7d344d30023cf9"
+  },
+  {
+    "id": "ivanna",
+    "name": "Ivanna",
+    "description": "Casual American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "yM93hbw8Qtvdma2wCnJG",
+    "public_owner_id": "76fb06688ef565775843b4efa41dd61de204a6cf28aa7ba86536140378d39188"
+  },
+  {
+    "id": "ivy",
+    "name": "Ivy",
+    "description": "Professional American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "MClEFoImJXBTgLwdLI5n",
+    "public_owner_id": "994939f01cc93e95f45f63c3e5b4b9f697968b0132e73a4cd59a3fe9358abc3d"
+  },
+  {
+    "id": "jenna",
+    "name": "Jenna",
+    "description": "Pleasant Canadian",
+    "gender": "female",
+    "accent": "canadian",
+    "language": "en",
+    "elevenlabs_voice_id": "TgnhEILA8UwUqIMi20rp",
+    "public_owner_id": "499c08008bc2b1d8cd3b700c9b91d5a0eb2a3ac8b7a50646a4cfcf4dd903e692"
+  },
+  {
+    "id": "kate",
+    "name": "Kate",
+    "description": "Calm Australian",
+    "gender": "female",
+    "accent": "australian",
+    "language": "en",
+    "elevenlabs_voice_id": "w9rPM8AIZle60Nbpw7nl",
+    "public_owner_id": "ca441551477dd270248832ee36622eab1d63477d99b801be48ce78e09b3501cf"
+  },
+  {
+    "id": "katie",
+    "name": "Katie",
+    "description": "Professional British",
+    "gender": "female",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "MzqUf1HbJ8UmQ0wUsx2p",
+    "public_owner_id": "6643afd1d55a6987b18e340e00bb89ed60329c878a01823e0c10a50fb522bd76"
+  },
+  {
+    "id": "kennedy",
+    "name": "Kennedy",
+    "description": "Confident American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "c8GqgOMlDjKmhWVDfhvI",
+    "public_owner_id": "1b6b9a9b3df4fbd264cbd3eb2d0eb126b872c21a18c8bdda03dad7a545642777"
+  },
+  {
+    "id": "lena",
+    "name": "Lena",
+    "description": "Calm Canadian",
+    "gender": "female",
+    "accent": "canadian",
+    "language": "en",
+    "elevenlabs_voice_id": "roYauZ4bOLAKvVZTPLre",
+    "public_owner_id": "53330801e47229fd486d4de96605feb8062515f76da49bbe3b429738f4719b7f"
+  },
+  {
+    "id": "lisa",
+    "name": "Lisa",
+    "description": "Upbeat American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "e0bmllAjevQ9bvU71kzO",
+    "public_owner_id": "db8a6ea9d507559278347f9465a735f7a7f76530e59a5fc6a23ebabd5faf47f5"
+  },
+  {
+    "id": "lori",
+    "name": "Lori",
+    "description": "Upbeat American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "TbMNBJ27fH2U0VgpSNko",
+    "public_owner_id": "0e21624fa10520eb69034691cb815068f8ed63438f953b74bb7e8abf1496d3be"
+  },
+  {
+    "id": "lucy",
+    "name": "Lucy",
+    "description": "Casual British",
+    "gender": "female",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "lcMyyd2HUfFzxdCaC4Ta",
+    "public_owner_id": "034ca2102998f015606215ff3002514bf4cb00e019ff9bb4b87d00bc5be91b5c"
+  },
+  {
+    "id": "marissa",
+    "name": "Marissa",
+    "description": "Cute American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "L0yTtpRXzdyzQlzALhgD",
+    "public_owner_id": "cab0f4a4d83ff44919f93c5d01052405fa3c50c414d1ecab061b67b0bd8d536a"
+  },
+  {
+    "id": "regina",
+    "name": "Regina",
+    "description": "Relaxed British",
+    "gender": "female",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "M7wzTk2Y1hGQyRzr9sbS",
+    "public_owner_id": "5214e3d3123945dcad0881d8743a206c4dbc617f34e858e8878c4fd90deb4892"
+  },
+  {
+    "id": "sarah",
+    "name": "Sarah",
+    "description": "Calm American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "nf4MCGNSdM0hxM95ZBQR",
+    "public_owner_id": "da6aacf0cc6132760c56b5f2e50f78515f4fa114e49e90bb1c18b135979ac439"
+  },
+  {
+    "id": "sia",
+    "name": "Sia",
+    "description": "Confident Indian",
+    "gender": "female",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "oO7sLA3dWfQXsKeSAjpA",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  },
+  {
+    "id": "simran",
+    "name": "Simran",
+    "description": "Pleasant Indian",
+    "gender": "female",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "1ea3IFhmSWgw8sJkSvfJ",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  },
+  {
+    "id": "steffy",
+    "name": "Steffy",
+    "description": "Professional British",
+    "gender": "female",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "bm3QvaZ3fUSCRBC3UV1f",
+    "public_owner_id": "5214e3d3123945dcad0881d8743a206c4dbc617f34e858e8878c4fd90deb4892"
+  },
+  {
+    "id": "tripti",
+    "name": "Tripti",
+    "description": "Professional Indian",
+    "gender": "female",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "MwUMLXurEzSN7bIfIdXF",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  },
+  {
+    "id": "veda",
+    "name": "Veda",
+    "description": "Crisp American",
+    "gender": "female",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "XcXEQzuLXRU9RcfWzEJt",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  },
+  {
+    "id": "verity",
+    "name": "Verity",
+    "description": "Upbeat British",
+    "gender": "female",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "oW8bn5YtBB89X2nJ0DT9",
+    "public_owner_id": "5c83469454159b28dee4ec0b7c67e2aae7ffef719705aee500de21c4221c7ad2"
+  },
+  {
+    "id": "aidan",
+    "name": "Aidan",
+    "description": "Calm American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "EOVAuWqgSZN2Oel78Psj",
+    "public_owner_id": "597ded7f40f017067ce904f013a95cf6f5c7ab12bba282ac13f8a61dac7bbba4"
+  },
+  {
+    "id": "alexander",
+    "name": "Alexander",
+    "description": "Calm British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "mZ8K1MPRiT5wDQaasg3i",
+    "public_owner_id": "696809093ba242d93e9beadc478b43ed0fe788b4839250870434d35decf13a53"
+  },
+  {
+    "id": "ally",
+    "name": "Ally",
+    "description": "Casual Scottish",
+    "gender": "male",
+    "accent": "scottish",
+    "language": "en",
+    "elevenlabs_voice_id": "v2zbX16tJNtRIx8rSHDM",
+    "public_owner_id": "92f91824dea2d8680fdcd499d7db27992a6d119b3c5d07f3b043246cbcde31e4"
+  },
+  {
+    "id": "amrut",
+    "name": "Amrut",
+    "description": "Professional Indian",
+    "gender": "male",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "vO7hjeAjmsdlGgUdvPpe",
+    "public_owner_id": "f87f057c2250691953ac2e6227859706764bd08c88a055a18c74261957885a51"
+  },
+  {
+    "id": "archer",
+    "name": "Archer",
+    "description": "Calm British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "Fahco4VZzobUeiPqni1S",
+    "public_owner_id": "8cab967ba4f7385d9544b0f35096242b8c6348e0165fd2bdc6de17c02bc6d60b"
+  },
+  {
+    "id": "ben",
+    "name": "Ben",
+    "description": "Confident Canadian",
+    "gender": "male",
+    "accent": "canadian",
+    "language": "en",
+    "elevenlabs_voice_id": "CGv6jJfHyvyDsrhuAjcD",
+    "public_owner_id": "7ebd8157bd268fbedcbe4b8b3a08140f30d8a03ba77585473683bb37f5269835"
+  },
+  {
+    "id": "cody",
+    "name": "Cody",
+    "description": "Excited Canadian",
+    "gender": "male",
+    "accent": "canadian",
+    "language": "en",
+    "elevenlabs_voice_id": "9XfYMbJVZqPHaQtYnTAO",
+    "public_owner_id": "4e120f88d43f125a4c1f56885db63990e17568c80c5cca2f9f3a6459230fbeb1"
+  },
+  {
+    "id": "david",
+    "name": "David",
+    "description": "Calm Australian",
+    "gender": "male",
+    "accent": "australian",
+    "language": "en",
+    "elevenlabs_voice_id": "ouFAjcjtdrVBT9bRFhFQ",
+    "public_owner_id": "8af339d066ef87525b3ca8399d65ef693871162c43dae22b79577ce0f97165f7"
+  },
+  {
+    "id": "donovan",
+    "name": "Donovan",
+    "description": "Confident American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "DMyrgzQFny3JI1Y1paM5",
+    "public_owner_id": "37242178387aa74ac807790c7307e81312f0791cf06777a4791b86d941a77525"
+  },
+  {
+    "id": "erik",
+    "name": "Erik",
+    "description": "Casual Canadian",
+    "gender": "male",
+    "accent": "canadian",
+    "language": "en",
+    "elevenlabs_voice_id": "Fz7HYdHHCP1EF1FLn46C",
+    "public_owner_id": "8d87493813035deaeafc70ce3d31e93c5ce5052ab2b3fae67b152f59af131beb"
+  },
+  {
+    "id": "finn",
+    "name": "Finn",
+    "description": "Casual British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "XZEfcFyBnzsNJrdvkWdI",
+    "public_owner_id": "22103fcf18078125aede9e9fc91e37a406bac0a561eab31315a1f3f426a13849"
+  },
+  {
+    "id": "hayden",
+    "name": "Hayden",
+    "description": "Upbeat Southern US",
+    "gender": "male",
+    "accent": "us southern",
+    "language": "en",
+    "elevenlabs_voice_id": "Zg15Et3nnFl0MqqzwK3w",
+    "public_owner_id": "ebcc77439429761df2e037be661858c2e58cfeff8b02f4732a46ef5c84a16567"
+  },
+  {
+    "id": "jack",
+    "name": "Jack",
+    "description": "Professional American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "7EzWGsX10sAS4c9m9cPf",
+    "public_owner_id": "3c22f968af854e73f490d79ea08453c56af6913873cdb417a58a6e8975f2ba2f"
+  },
+  {
+    "id": "jason",
+    "name": "Jason",
+    "description": "Casual American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "5kMbtRSEKIkRZSdXxrZg",
+    "public_owner_id": "2235ffda365c0266a8d109efe756f570c68bb50575813707c477abc1beb56f79"
+  },
+  {
+    "id": "jude",
+    "name": "Jude",
+    "description": "Professional British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "Yg7C1g7suzNt5TisIqkZ",
+    "public_owner_id": "300b35287e8acc21dd12bd610b831e19b47dc75e8b8c15c2bca80cdcb776ef2d"
+  },
+  {
+    "id": "karan",
+    "name": "Karan",
+    "description": "Calm Indian",
+    "gender": "male",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "T8lgQl6x5PSdhmmWx42m",
+    "public_owner_id": "f87f057c2250691953ac2e6227859706764bd08c88a055a18c74261957885a51"
+  },
+  {
+    "id": "kevin",
+    "name": "Kevin",
+    "description": "Chill Jamaican",
+    "gender": "male",
+    "accent": "jamaican",
+    "language": "en",
+    "elevenlabs_voice_id": "eRcsJdPMOM0mtGC03ul7",
+    "public_owner_id": "95170eb183017349f09f6f067f2e660c633eecd5d1289989ddfbc7e4067f7465"
+  },
+  {
+    "id": "mark",
+    "name": "Mark",
+    "description": "Casual American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "UgBBYS2sOqTuMpoF3BR0",
+    "public_owner_id": "024c9393c6380665357f60b1062c863cd635d79791f13d6f0a834a319d5ff56c"
+  },
+  {
+    "id": "michael",
+    "name": "Michael",
+    "description": "Confident American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "ljX1ZrXuDIIRVcmiVSyR",
+    "public_owner_id": "1b5b0bed32f33de52cfd79b2b67b9b4839e71d9358b951c7e88abd1b86a35159"
+  },
+  {
+    "id": "mike",
+    "name": "Mike",
+    "description": "Confident New York",
+    "gender": "male",
+    "accent": "new york",
+    "language": "en",
+    "elevenlabs_voice_id": "ewxUvnyvvOehYjKjUVKC",
+    "public_owner_id": "729478dd3a6343f7a6f4658521b7ffd8cc733c0e6b1f6e0943f1676b0a9db3e4"
+  },
+  {
+    "id": "nathaniel",
+    "name": "Nathaniel",
+    "description": "Casual British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "lnIpQcZuikKim3oNdYlP",
+    "public_owner_id": "f87f057c2250691953ac2e6227859706764bd08c88a055a18c74261957885a51"
+  },
+  {
+    "id": "olamide",
+    "name": "Olamide",
+    "description": "Casual Nigerian",
+    "gender": "male",
+    "accent": "nigerian",
+    "language": "en",
+    "elevenlabs_voice_id": "qRRCpZ9846Z3NiCRzdQ5",
+    "public_owner_id": "7fbb263817dd34dda9f150b9a0522d2342ac9b89351f09ef9abb98c09ba56b16"
+  },
+  {
+    "id": "paul",
+    "name": "Paul",
+    "description": "Professional Australian",
+    "gender": "male",
+    "accent": "australian",
+    "language": "en",
+    "elevenlabs_voice_id": "WLKp2jV6nrS8aMkPPDRO",
+    "public_owner_id": "cf1ae0e788360e6b88c6178d3a5fb0a5e5f49b3e9111c135bd2b16fb4863a7b2"
+  },
+  {
+    "id": "rahul",
+    "name": "Rahul",
+    "description": "Pleasant Indian",
+    "gender": "male",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "txk8uOzZ0iCh0B9mFSRG",
+    "public_owner_id": "6fd3438cdf34cd2cc8e2ef6f0d3bf7149d5a5c1606fb7f3069454edd279a1ad8"
+  },
+  {
+    "id": "raj",
+    "name": "Raj",
+    "description": "Casual Indian",
+    "gender": "male",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "wJ5MX7uuKXZwFqGdWM4N",
+    "public_owner_id": "d9ba38d6a0abb2bad207be033c951e0550cc6828c9fa74ff17235e7bc8d9be11"
+  },
+  {
+    "id": "raju",
+    "name": "Raju",
+    "description": "Professional Indian",
+    "gender": "male",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "3gsg3cxXyFLcGIfNbM6C",
+    "public_owner_id": "f87f057c2250691953ac2e6227859706764bd08c88a055a18c74261957885a51"
+  },
+  {
+    "id": "rory",
+    "name": "Rory",
+    "description": "Casual British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "xYo5z1CSHgIA8XSPGcsR",
+    "public_owner_id": "503ef2e72fb506b3879737bc64638b2d48597374bf1247925feea5d30965f3bd"
+  },
+  {
+    "id": "ryan",
+    "name": "Ryan",
+    "description": "Casual American",
+    "gender": "male",
+    "accent": "american",
+    "language": "en",
+    "elevenlabs_voice_id": "4e32WqNVWRquDa1OcRYZ",
+    "public_owner_id": "9f02c0707cb89dc9b29e82b2f96a0b758b8434a76b56146a5c98073306c50a94"
+  },
+  {
+    "id": "ted",
+    "name": "Ted",
+    "description": "Casual Irish",
+    "gender": "male",
+    "accent": "irish",
+    "language": "en",
+    "elevenlabs_voice_id": "4AgX6Piqqh5KT4pSisZQ",
+    "public_owner_id": "80746812e7c9e6a22a1a7a62159dcf7340aa5e86b4146367ff1d6f8ccce17131"
+  },
+  {
+    "id": "tim",
+    "name": "Tim",
+    "description": "Pleasant British",
+    "gender": "male",
+    "accent": "british",
+    "language": "en",
+    "elevenlabs_voice_id": "lDGeel1fnWlsSRjTLoXj",
+    "public_owner_id": "a2cd1d9fe71d1d9f27b974c7909d1b6efce7eb88ce0adf9a8864569a4daf26b0"
+  },
+  {
+    "id": "viraj",
+    "name": "Viraj",
+    "description": "Serious Indian",
+    "gender": "male",
+    "accent": "indian",
+    "language": "en",
+    "elevenlabs_voice_id": "Ock0AL5DBkvTUDePt4Hm",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  },
+  {
+    "id": "zain",
+    "name": "Zain",
+    "description": "Pleasant Malaysian",
+    "gender": "male",
+    "accent": "malay",
+    "language": "en",
+    "elevenlabs_voice_id": "U7vsLCpbWl9Lt8M1Gjtk",
+    "public_owner_id": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6"
+  }
+]
